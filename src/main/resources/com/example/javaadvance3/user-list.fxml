@@ -6,7 +6,7 @@
 <?import javafx.scene.text.*?>
 
 <VBox alignment="TOP_CENTER" prefHeight="467.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javaadvance3.userController">
-    <Label alignment="TOP_LEFT" text="ユーザー管理システム" textFill="#0040ff">
+    <Label text="ユーザー管理システム" textFill="#0040ff">
         <font>
             <Font size="20.0" />
         </font>
@@ -73,6 +73,20 @@
     </HBox>
 
     <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0" minWidth="-Infinity">
+        <HBox>
+            <Text text="検索ボックス" >
+                <font>
+                    <Font size="20" />
+                </font>
+            </Text>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="検索" onMouseClicked="#searchClick" />
+        </HBox>
+        <TextField fx:id="search">
+            <VBox.margin>
+                <Insets bottom="10" />
+            </VBox.margin>
+        </TextField>
         <TableView fx:id="table" onMouseClicked="#onListClick">
             <columns>
                 <TableColumn fx:id="idColumn" prefWidth="75.0" text="id" />

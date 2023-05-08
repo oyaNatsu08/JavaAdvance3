@@ -38,10 +38,14 @@ public class userController {
     @FXML
     private Label editError;
 
+    @FXML
+    private TextField search;
+
     int editId;
 
     int clickId;
 
+    //ユーザーリスト
     ObservableList<User> userList;
 
     //IDの最下部を保持する
@@ -173,5 +177,18 @@ public class userController {
         } catch (NumberFormatException e) {
             editError.setText("スコアに数値を入力してください");
         }
+    }
+
+    @FXML
+    public void searchClick() {
+        //キーワード
+        String searchText = this.search.getText();
+
+        //ユーザーリスト(検索用)
+        ObservableList<User> searchUserList = FXCollections.observableArrayList();
+
+        userList.stream().filter(e -> e.name.contains(searchText)).forEach(searchUserList::add);
+
+        table.setItems(searchUserList);
     }
 }
